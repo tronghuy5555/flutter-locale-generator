@@ -4,7 +4,8 @@ const { google } = require('googleapis');
 const { GoogleSpreadsheet } = require('google-spreadsheet');
 
 const TOKEN_PATH = 'token.json';
-
+const GOOGLE_SERVICE_PATH = './config/google_service_account.json'
+const SHEET_ID = ""
 (async () => {
     // If modifying these scopes, delete token.json.
     const SCOPES = [
@@ -18,8 +19,8 @@ const TOKEN_PATH = 'token.json';
     const SHEET_ID_VO_DANH_EMAIL = "1WQuFc3JSuosC_sgnk7hdLSQLgUNdg0hE7lbz1A6AQyc";
     const SHEET_ID = "17Sv5uSbEfqVBWSYuSYCOrxepCbS6P5Ia";
 
-    const googleServiceAccount = require('./config/google_service_vo_danh_mail.json');
-    const googleServiceAccountCompany = require('./config/google_service_account.json');
+    const googleServiceAccount = require(GOOGLE_SERVICE_PATH);
+    const googleServiceAccountCompany = require(GOOGLE_SERVICE_PATH);
 
     // Initialize the sheet - doc ID is the long id in the sheets URL
     const doc = new GoogleSpreadsheet(SHEET_ID_VO_DANH_EMAIL);
