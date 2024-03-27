@@ -17,7 +17,7 @@ const filepath = process.argv.slice(2);
 	const firstSheetForProcessing = reader.utils.sheet_to_json(sheets[sheetNames[0]]);
 
 	const languagesSupported = Object.keys(firstSheetForProcessing[0])
-									.filter((s) => s != "key")
+									.filter((s) => s != "key" && !s.includes("exclude"))
 									.sort((a, b) => {
 										if (a > b) return 1;
 										if (a < b) return -1;
