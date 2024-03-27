@@ -1,0 +1,5 @@
+{
+	"@@locale": "en",
+	"commonBackText": "Back",
+	"commonNumberOfMutualFriendsText": "{totalMutalFriends, plural, =1{1 mutual friend} other{{number_format} mutual friends}}"
+}

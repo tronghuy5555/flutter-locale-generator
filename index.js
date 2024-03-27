@@ -11,7 +11,7 @@ const filepath = process.argv.slice(2);
 	const writeFilePath = filepath[1];
 
 	const sheets = file.Sheets;
-	const sheetNames = file.SheetNames;
+	const sheetNames = file.SheetNames.filter((s) => s != "Example_To_Clone");
 	console.log(`All Sheets = ${sheetNames}, firstSheet=${sheets[sheetNames[0]]}`);
 
 	const firstSheetForProcessing = reader.utils.sheet_to_json(sheets[sheetNames[0]]);
@@ -63,8 +63,8 @@ const filepath = process.argv.slice(2);
 							.replace(/\\\\"/g, "\"")
 							.replace(/\\\\u/g, "\\u");
 		const relativePath = writeFilePath == undefined ? '' : `${writeFilePath}`;
-		const filePath = `${relativePath}intl_${language}.arb`;
-		console.log(`Writing intl_${language}.arb at ${filePath}`);
+		const filePath = `${relativePath}app_${language}.arb`;
+		console.log(`Writing app_${language}.arb at ${filePath}`);
 		fs.writeFileSync(filePath, fileData, {
 			encoding: 'utf-8',
 		});

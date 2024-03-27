@@ -13,16 +13,17 @@
 		"type": "git",
 		"url": "git+https://github.com/tronghuy5555/flutter-locale-generator"
 	},
-	"author": "Huy Nguyen",
+	"author": "Huy Pham",
 	"license": "ISC",
 	"bugs": {
 		"url": "https://github.com/tronghuy5555/flutter-locale-generator/issues"
 	},
 	"homepage": "https://github.com/tronghuy5555/flutter-locale-generator/app-locale-generator#readme",
 	"dependencies": {
+		"fs": "^0.0.1-security",
 		"google-auth-library": "^8.1.1",
 		"google-spreadsheet": "^3.3.0",
 		"googleapis": "^105.0.0",
-		"xlsx": "^0.17.3"
+		"xlsx": "^0.17.5"
 	}
 }
