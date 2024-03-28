@@ -11,10 +11,11 @@ const filepath = process.argv.slice(2);
 	const writeFilePath = filepath[1];
 
 	const sheets = file.Sheets;
-	const sheetNames = file.SheetNames.filter((s) => s != "Example_To_Clone");
-	console.log(`All Sheets = ${sheetNames}, firstSheet=${sheets[sheetNames[0]]}`);
+	const sheetNames = file.SheetNames.filter((s) => !s.includes("Example_To_Clone"));
+	const firstRawSheet = sheetNames[0]
+	const firstSheetForProcessing = reader.utils.sheet_to_json(sheets[firstRawSheet]);
+	console.log(`All Sheets = ${sheetNames}, firstSheet=${firstRawSheet}`);
 
-	const firstSheetForProcessing = reader.utils.sheet_to_json(sheets[sheetNames[0]]);
 
 	const languagesSupported = Object.keys(firstSheetForProcessing[0])
 									.filter((s) => s != "key" && !s.includes("exclude"))
@@ -24,7 +25,8 @@ const filepath = process.argv.slice(2);
 										return 0
 									});
 	
-	console.log("Reading file...");
+	console.log(`Reading file...`);
+	console.log(`Language supported: ${languagesSupported}`)
 	const languageFileLocaleData = {};
 	for (const language of languagesSupported) {
 		languageFileLocaleData[language] = {

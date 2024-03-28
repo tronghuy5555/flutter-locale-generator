@@ -4,3 +4,4 @@ env.sh
 config/google_service_account.json
 token.json
 example.xlsx
+localization.xlsx

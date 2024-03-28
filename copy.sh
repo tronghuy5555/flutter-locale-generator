@@ -72,8 +72,10 @@ copy_files_to_folder() {
         genFilePath=$path
         result=$(checkPath $genFilePath)
         if [[ result ]]; then
+            copy_file_if_not_exists "$sourcePath/index.js" "$genFilePath/index.js"
             copy_file_if_not_exists "$sourcePath/env_localization.sh" "$genFilePath/env_localization.sh"
             copy_file_if_not_exists "$sourcePath/gen_localization_file.sh" "$genFilePath/gen_localization_file.sh"
+            copy_file_if_not_exists "$sourcePath/convert_arb_to_xlsx.js" "$genFilePath/convert_arb_to_xlsx.js"
         fi
     fi
 }
